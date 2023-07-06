@@ -1,9 +1,9 @@
+import List from './components/List';
+
 function App() {
-    return (
-        <>
-            <h1>react + vite</h1>
-        </>
-    );
+    const showConditionally = false;
+
+    return <>{showConditionally ? <List /> : <h1>I can't see the list</h1>}</>;
 }
 
 export default App;
