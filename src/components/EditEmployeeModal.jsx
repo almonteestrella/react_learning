@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import Modal from 'react-bootstrap/Modal';
 
+/* eslint-disable react/prop-types */
 function EditEmployee(props) {
     const [show, setShow] = useState(false);
 
@@ -25,7 +26,15 @@ function EditEmployee(props) {
                     <Modal.Title>Update Employee</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <form className='w-full max-w-sm' id='form'>
+                    <form
+                        className='w-full max-w-sm'
+                        id='form'
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            props.updatedEmployee(props.id, name, role);
+                            handleClose();
+                        }}
+                    >
                         <div className='md:flex md:items-center mb-6'>
                             <div className='md:w-1/3'>
                                 <label

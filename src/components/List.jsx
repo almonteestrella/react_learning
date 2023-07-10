@@ -11,12 +11,19 @@ const Employee = (props) => {
             />
             <div className='text-center space-y-2 sm:text-left'>
                 <div className='space-y-0.5'>
-                    <p className='text-lg text-black font-semibold'>{name}</p>
+                    <p className='text-lg text-black font-semibold'>
+                        {props.name}
+                    </p>
                     <p className='text-slate-500 font-medium'>
                         {props.role ? props.role : 'no role'}
                     </p>
                 </div>
-                <EditEmployee name={props.name} role={props.role} />
+                <EditEmployee
+                    name={props.name}
+                    role={props.role}
+                    updatedEmployee={props.updatedEmployee}
+                    id={props.id}
+                />
             </div>
         </div>
     );
