@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import Employee from './components/List';
+import Employee from './components/Employee';
+import AddEmployee from './components/AddNewEmployee';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
     const showConditionally = true;
-    const [role, setRole] = useState('student'); //way to change values on the UI.
     const [employees, setEmployees] = useState([
         {
             id: 1,
@@ -49,6 +50,7 @@ function App() {
         },
     ]);
 
+    //udate employee
     const updatedEmployee = (id, newName, newRole) => {
         const updatedList = employees.map((employee) => {
             if (id === employee.id) {
@@ -60,17 +62,22 @@ function App() {
         setEmployees(updatedList);
     };
 
+    //add new employee
+    const AddNewEmployee = (name, role, img) => {
+        const newEmployee = {
+            id: uuidv4(),
+            name: name,
+            img: img,
+            role: role,
+        };
+
+        setEmployees([...employees, newEmployee]);
+    };
+
     return (
         <>
             {showConditionally ? (
-                <div className=''>
-                    <input
-                        type='text'
-                        onChange={(e) => {
-                            console.log(e.target.value);
-                            setRole(e.target.value);
-                        }}
-                    />
+                <main className=''>
                     <div className='flex flex-wrap justify-center'>
                         {employees.map(({ name, role, img, id }) => {
                             return (
@@ -85,7 +92,8 @@ function App() {
                             );
                         })}
                     </div>
-                </div>
+                    <AddEmployee newEmployee={AddNewEmployee} />
+                </main>
             ) : (
                 <h1>I can not see the list</h1>
             )}
