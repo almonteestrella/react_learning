@@ -3,6 +3,7 @@ import Employee from './components/Employee';
 import AddEmployee from './components/AddNewEmployee';
 import { v4 as uuidv4 } from 'uuid';
 import EditEmployee from './components/EditEmployeeModal';
+import Header from './components/Header';
 
 function App() {
     const showConditionally = true;
@@ -78,7 +79,8 @@ function App() {
     return (
         <>
             {showConditionally ? (
-                <main className=''>
+                <main className='bg-gray-300 min-h-screen my-2'>
+                    <Header />
                     <div className='flex flex-wrap justify-center'>
                         {employees.map(({ name, role, img, id }) => {
                             const editEmployee = (
@@ -98,7 +100,7 @@ function App() {
                                     id={id}
                                     editEmployee={editEmployee}
                                 />
-                            );
+                            ); //pass a component as a prop.
                         })}
                     </div>
                     <AddEmployee newEmployee={AddNewEmployee} />
