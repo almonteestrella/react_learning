@@ -1,5 +1,3 @@
-import EditEmployee from './EditEmployeeModal';
-
 /* eslint react/prop-types: 0 */
 const Employee = (props) => {
     return (
@@ -18,12 +16,7 @@ const Employee = (props) => {
                         {props.role ? props.role : 'no role'}
                     </p>
                 </div>
-                <EditEmployee
-                    name={props.name}
-                    role={props.role}
-                    updatedEmployee={props.updatedEmployee}
-                    id={props.id}
-                />
+                {props.editEmployee}
             </div>
         </div>
     );

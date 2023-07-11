@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Employee from './components/Employee';
 import AddEmployee from './components/AddNewEmployee';
 import { v4 as uuidv4 } from 'uuid';
+import EditEmployee from './components/EditEmployeeModal';
 
 function App() {
     const showConditionally = true;
@@ -80,6 +81,14 @@ function App() {
                 <main className=''>
                     <div className='flex flex-wrap justify-center'>
                         {employees.map(({ name, role, img, id }) => {
+                            const editEmployee = (
+                                <EditEmployee
+                                    name={name}
+                                    role={role}
+                                    updatedEmployee={updatedEmployee}
+                                    id={id}
+                                />
+                            );
                             return (
                                 <Employee
                                     name={name}
@@ -87,7 +96,7 @@ function App() {
                                     img={img}
                                     key={id}
                                     id={id}
-                                    updatedEmployee={updatedEmployee}
+                                    editEmployee={editEmployee}
                                 />
                             );
                         })}

@@ -34,6 +34,11 @@ function AddEmployee(props) {
                             e.preventDefault();
                             props.newEmployee(name, role, img);
                             handleClose();
+
+                            if (name === '' || role === '' || img === ' ') {
+                                console.log('please provide input values');
+                                return;
+                            }
                             setImg('');
                             setName('');
                             setRole('');
