@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Second', href: '/secondpage' },
-    { name: 'Projects', href: 'more' },
+    { name: 'Dictionary', href: '/dictionary' },
     { name: 'Calendar', href: 'muchMore' },
 ];
 
@@ -178,7 +178,12 @@ export default function Header({ children }) {
                     </>
                 )}
             </Disclosure>
-            <div className='bg-gray-300 min-h-screen p-2'> {children}</div>
+            <div className='bg-gray-300'>
+                <div className='max-w-7xl mx-auto min-h-screen p-2'>
+                    {' '}
+                    {children}
+                </div>
+            </div>
         </>
     );
 }
