@@ -1,8 +1,9 @@
 import EmployeesPage from './pages/EmployeePage';
 import Header from './components/Header';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SecondPage from './pages/SecondPage';
 import DictionaryPage from './pages/DictionaryPage';
+import Dictionary from './components/Dictionary';
+import NotFound from './components/NotFound';
 
 function App() {
     return (
@@ -10,10 +11,12 @@ function App() {
             <Header>
                 <Routes>
                     <Route path='/' element={<EmployeesPage />} />
-                    <Route path='/secondpage' element={<SecondPage />} />
-                    <Route path='/dictionary' element={<DictionaryPage />} />
+                    <Route path='/dictionary' element={<Dictionary />} />
+                    <Route path='/404' element={<NotFound />} />
+                    <Route path='*' element={<NotFound />} />
+
                     <Route
-                        path='/dictionary/:search'
+                        path='/definition/:search'
                         element={<DictionaryPage />}
                     />
                 </Routes>
