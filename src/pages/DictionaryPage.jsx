@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import NotFound from '../components/NotFound';
+import DefinitonSearch from '../components/DefinitonSearch';
 
 const DictionaryPage = () => {
     const [word, setWord] = useState([]);
@@ -52,6 +53,7 @@ const DictionaryPage = () => {
     }
     return (
         <>
+            <DefinitonSearch />
             {word ? (
                 <div>
                     {word.map((meaning) => {
