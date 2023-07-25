@@ -1,6 +1,6 @@
 import express from 'express';
 const app = express();
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); // To parse the incoming requests with JSON payloads
 
 import usersRoutes from './routes/users.js';
